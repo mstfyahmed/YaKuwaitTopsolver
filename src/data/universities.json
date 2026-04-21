@@ -1,0 +1,7 @@
+[
+  {"id": 1, "name": "ACK", "description": "جامعة الكويت", "sort_order": 0},
+  {"id": 2, "name": "ACM", "description": "جامعة الكويت", "sort_order": 1},
+  {"id": 3, "name": "AUM", "description": "جامعة الكويت", "sort_order": 2},
+  {"id": 4, "name": "AUK", "description": "جامعة الكويت", "sort_order": 3},
+  {"id": 5, "name": "AIU", "description": "جامعة الكويت", "sort_order": 4}
+]
