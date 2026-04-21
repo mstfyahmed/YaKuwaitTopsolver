@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary-color, #2563eb);
+  --color-bg-main: #f8fafc;
+  --color-card-bg: #ffffff;
+  --color-text-main: #1e293b;
+  --color-text-gray: #64748b;
+  --color-emerald-500: #10b981;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-main font-sans;
+    margin: 0;
+    padding-bottom: 50px;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .path-breathing {
+    animation: map-breathe 4s ease-in-out infinite;
+    transition: stroke 0.3s ease, fill 0.3s ease;
+  }
+
+  @keyframes map-breathe {
+    0%, 100% { 
+      filter: drop-shadow(0 0 10px var(--MainColor)); 
+      opacity: 0.85; 
+    }
+    50% { 
+      filter: drop-shadow(0 0 25px var(--MainColor)); 
+      opacity: 1; 
+    }
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 10px var(--MainColor), 0 0 20px var(--MainColor);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@layer components {
+  .map-section {
+    @apply relative w-full h-screen bg-slate-50 flex flex-col items-center overflow-hidden;
+  }
+
+  .land {
+    @apply fill-white stroke-slate-200 stroke-[2] transition-all duration-500;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+  }
+
+  .uni-pin {
+    @apply cursor-pointer transition-all duration-300;
+  }
+
+  .uni-pin:hover circle:first-child {
+    @apply scale-125;
+    filter: drop-shadow(0 0 15px var(--primary-color));
+  }
+
+  .uni-label {
+    @apply text-[12px] font-bold fill-slate-800 pointer-events-none;
+  }
+
+  .header-gradient {
+    @apply bg-primary text-white pt-10 pb-12 px-6 text-center shadow-lg relative z-10;
+    border-radius: 0 0 40px 40px;
+  }
+
+  .search-overlap {
+    @apply relative -mt-7 px-4 z-20;
+  }
+
+  .custom-card {
+    @apply bg-card-bg rounded-[20px] p-5 mb-4 shadow-sm border border-slate-100 cursor-pointer transition-all active:scale-[0.98] hover:shadow-md;
+  }
+
+  .plan-grid {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .plan-item {
+    @apply bg-white rounded-[24px] p-5 h-[145px] relative border border-slate-200 overflow-hidden shadow-sm transition-all active:scale-[0.98];
+  }
+
+  .plan-price {
+    @apply absolute left-5 top-5 text-emerald-500 font-bold text-lg;
+  }
+
+  .plan-name {
+    @apply absolute right-5 top-5 font-bold text-slate-800 text-right text-base leading-tight max-w-[60%];
+  }
+
+  .plan-btn {
+    @apply absolute bottom-0 left-0 right-0 bg-primary text-white border-none py-3.5 text-sm font-bold cursor-pointer transition-colors hover:bg-primary/90;
+  }
+
+  .admin-panel-slide {
+    @apply fixed bottom-0 left-0 right-0 bg-white p-8 rounded-t-[45px] shadow-2xl z-50 max-h-[90vh] overflow-y-auto;
+  }
+}
